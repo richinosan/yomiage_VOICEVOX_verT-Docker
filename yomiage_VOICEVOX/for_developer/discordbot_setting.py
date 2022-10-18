@@ -25,7 +25,13 @@ with open(Synthax_file, 'r', encoding='utf-8') as f:
                   comment_Synthax = row[1]
             elif row[0] == 'other_bots_Synthax':
                   other_bots_Synthax.append(row[1])
-abspath = "/yomiage_voicevox/"
+if not(os.environ["COMMAND_SYNTHAX"] == None):
+      command_Synthax = os.environ["COMMAND_SYNTHAX"]
+if not(os.environ["COMMENT_SYNTHAX"] == None):
+      comment_Synthax = os.environ["COMMENT_SYNTHAX"]
+if not(os.environ["OTHER_BOTS_SYNTHAX"] == None):
+      for i in os.environ["OTHER_BOTS_SYNTHAX"].split(','):
+            other_bots_Synthax.append(i)
 
 # VOICEVOX音声再生（.bat）ファイルへのパス
 sh_json = "output_json_from_VOICEVOX.sh"   
