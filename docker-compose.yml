@@ -1,0 +1,14 @@
+version: '3'
+services:
+  yomiage_voicevox:
+    container_name: yomiage_voicevox
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    volumes:
+      - ./yomiage_VOICEVOX:/yomiage_VOICEVOX
+    environment:
+      TOKEN: "TOKEN"
+      TZ: "Asia/Tokyo"
+    entrypoint: "python3 /yomiage_VOICEVOX/discordbot.py"
