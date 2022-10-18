@@ -42,7 +42,7 @@ class VoiceVoxVoiceGenerator(AbstractVoiceGenerator):
 
         try:
             # VOICEVOX（あるいは互換ソフト）から、話者の一覧をJsonで取得する
-            command = bat_speakers + ' ' + port
+            command = "sh " + sh_speakers + ' ' + port
             os.system(command)
 
             #Jsonを解析して話者の情報を動的に取得する
@@ -66,8 +66,8 @@ class VoiceVoxVoiceGenerator(AbstractVoiceGenerator):
     def generate(self, character_name:str, style_name:str, query:str, parameter:dict):
         # コマンドの設定
         style_id_str = str(self.speakers[character_name].getStyleId(style_name))
-        command1 = bat_json + ' ' + self.port + ' ' + query + ' ' + style_id_str
-        command2 = bat_voice + ' ' + self.port + ' ' + style_id_str
+        command1 = "sh " + sh_json + ' ' + self.port + ' ' + query + ' ' + style_id_str
+        command2 = "sh " + sh_voice + ' ' + self.port + ' ' + style_id_str
 
         # リクエスト用Jsonの生成
         os.system(command1)
