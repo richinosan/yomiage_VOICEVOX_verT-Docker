@@ -8,3 +8,4 @@ yomiage_VOICEVOX/for_developer/__pycache__/voice_speaker.cpython-311.pyc
 yomiage_VOICEVOX/tmp/speakers.json
 yomiage_VOICEVOX/tmp/query.json
 yomiage_VOICEVOX/tmp/tmp_voice.wav
+.gitignore
