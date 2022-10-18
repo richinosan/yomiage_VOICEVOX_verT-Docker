@@ -1,0 +1,10 @@
+yomiage.code-workspace
+yomiage_VOICEVOX/data/style_setting.csv
+yomiage_VOICEVOX/data/voice_list.csv
+yomiage_VOICEVOX/for_developer/__pycache__/discordbot_functions.cpython-311.pyc
+yomiage_VOICEVOX/for_developer/__pycache__/discordbot_setting.cpython-311.pyc
+yomiage_VOICEVOX/for_developer/__pycache__/voice_generator.cpython-311.pyc
+yomiage_VOICEVOX/for_developer/__pycache__/voice_speaker.cpython-311.pyc
+yomiage_VOICEVOX/tmp/speakers.json
+yomiage_VOICEVOX/tmp/query.json
+yomiage_VOICEVOX/tmp/tmp_voice.wav
