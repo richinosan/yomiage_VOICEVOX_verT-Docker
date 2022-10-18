@@ -1,13 +1,16 @@
 import csv
+import os
 
 TOKEN_file = 'TOKEN.txt' # 自分のBotのアクセストークン
 Synthax_file = 'Synthax_setting.csv' # 自分のBotのアクセストークン
-voibox_version = 'verT-20220923'
+voibox_version = 'verT-20220923-Docker'
 
 # アクセストークンの読み取り
 with open(TOKEN_file,'r', encoding='utf-8') as f:
       TOKEN = f.read()
       f.close()
+if not(os.environ["TOKEN"] == None):
+      TOKEN = os.environ["TOKEN"]
 
 # Synthax情報を読み込む
 with open(Synthax_file, 'r', encoding='utf-8') as f:
@@ -22,13 +25,14 @@ with open(Synthax_file, 'r', encoding='utf-8') as f:
                   comment_Synthax = row[1]
             elif row[0] == 'other_bots_Synthax':
                   other_bots_Synthax.append(row[1])
+abspath = "/yomiage_voicevox/"
 
 # VOICEVOX音声再生（.bat）ファイルへのパス
-bat_json = "output_json_from_VOICEVOX.bat"   
-bat_voice = "output_voice_from_VOICEVOX.bat"   
+sh_json = "output_json_from_VOICEVOX.sh"   
+sh_voice = "output_voice_from_VOICEVOX.sh"   
 
 # VOICEVOX情報取得（.bat）ファイルへのパス
-bat_speakers = "get_speakers_from_VOICEVOX.bat"
+sh_speakers = "get_speakers_from_VOICEVOX.sh"
 
 #各種ファイルへのパス(discordbot.pyからみた相対パス)
 voice_file = "tmp/tmp_voice.wav"              # VOICEVOX音声の保存先
