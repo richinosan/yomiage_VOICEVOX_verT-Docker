@@ -14,10 +14,10 @@ services:
       COMMAND_SYNTHAX : "!"
       COMMENT_SYNTHAX : ">"
       OTHER_BOTS_SYNTHAX : "$$,%,*"
-      USE_VOICEVOX: True
-      USE_COEIROINK: True
-      USE_LMROID: False
-      USE_SHAREVOX: False
+      USE_VOICEVOX: "True"
+      USE_COEIROINK: "True"
+      USE_LMROID: "False"
+      USE_SHAREVOX: "False"
       FLAG_LIST_PATH: "data/flag_list.csv"
       VOICE_LIST_PATH: "data/voice_list.csv"
       WORD_LIST_PATH: "data/word_list.csv"
