@@ -62,16 +62,40 @@ python読める＆docker実行できる人向けです。
    - タイムゾーンです。デフォルトではAsia/Tokyoにセットされています。
 
 2. **TOKEN**
-   - botで使用するトークンです。
+   - botで使用するトークンです。環境変数を設定しない場合、TOKEN.txtを参照します。
 
 3. **COMMAND_SYNTHAX**
-   - ここを変更するとコマンドの接頭辞が変わります
+   - コマンドの接頭辞です。環境変数を設定しない場合、Synthax_setting.csvを参照します。
 
 4. **COMMENT_SYNTHAX**
-   - コメント文を表すシンタックスです。
+   - コメント文を表すシンタックスです。環境変数を設定しない場合、Synthax_setting.csvを参照します。
 
 5. **OTHER_BOTS_SYNTHAX**
-   - 他のbotの接頭辞です。コンマ区切りで複数設定できます。ここで指定された接頭辞がつくコマンドに対して読み上げを行いません。
+   - 他のbotの接頭辞です。コンマ区切りで複数設定できます。ここで指定された接頭辞がつくコマンドに対して読み上げを行いません。環境変数を設定しない場合、Synthax_setting.csvを参照します。
+
+6. **USE_VOICEVOX**
+   - VOICEVOCXのboolです。使用する場合はTrueに設定します。環境変数を設定しない場合、setting.iniを参照します。
+
+7. **USE_COEIROINK**
+   - COEIROINKのboolです。使用する場合はTrueに設定します。環境変数を設定しない場合、setting.iniを参照します。
+   
+8. **USE_LMROID**
+   - LMROIDのboolです。使用する場合はTrueに設定します。環境変数を設定しない場合、setting.iniを参照します。
+
+9. **USE_SHAREVOX**
+   - SHAREVOXのboolです。使用する場合はTrueに設定します。環境変数を設定しない場合、setting.iniを参照します。
+
+10. **FLAG_LIST_PATH**
+   - flag_listのパスです。botにより異なるリストを設定するときに使用します。環境変数を設定しない場合、setting.iniを参照します。
+
+11. **VOICE_LIST_PATH**
+   - voice_listのパスです。botにより異なるリストを設定するときに使用します。環境変数を設定しない場合、setting.iniを参照します。
+   
+12. **WORD_LIST_PATH**
+   - word_listのパスです。botにより異なるリストを設定するときに使用します。環境変数を設定しない場合、setting.iniを参照します。
+
+13. **STYLE_SETTING_PATH**
+   - style_settingのパスです。botにより異なるリストを設定するときに使用します。環境変数を設定しない場合、setting.iniを参照します。
 
 ## 注意
 

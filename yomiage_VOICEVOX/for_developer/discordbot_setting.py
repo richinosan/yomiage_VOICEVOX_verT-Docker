@@ -9,8 +9,7 @@ voibox_version = 'verT-20220923-Docker'
 with open(TOKEN_file,'r', encoding='utf-8') as f:
       TOKEN = f.read()
       f.close()
-if not(os.environ["TOKEN"] == None):
-      TOKEN = os.environ["TOKEN"]
+TOKEN = os.getenv('TOKEN',TOKEN)
 
 # Synthax情報を読み込む
 with open(Synthax_file, 'r', encoding='utf-8') as f:
@@ -25,14 +24,13 @@ with open(Synthax_file, 'r', encoding='utf-8') as f:
                   comment_Synthax = row[1]
             elif row[0] == 'other_bots_Synthax':
                   other_bots_Synthax.append(row[1])
-if not(os.environ["COMMAND_SYNTHAX"] == None):
-      command_Synthax = os.environ["COMMAND_SYNTHAX"]
-if not(os.environ["COMMENT_SYNTHAX"] == None):
-      comment_Synthax = os.environ["COMMENT_SYNTHAX"]
-if not(os.environ["OTHER_BOTS_SYNTHAX"] == None):
+command_Synthax = os.getenv('COMMAND_SYNTHAX',command_Synthax)
+comment_Synthax = os.getenv('COMMENT_SYNTHAX',comment_Synthax)
+if not(os.getenv('OTHER_BOTS_SYNTHAX') == None):
       other_bots_Synthax = []
-      for i in os.environ["OTHER_BOTS_SYNTHAX"].split(','):
+      for i in os.getenv('OTHER_BOTS_SYNTHAX').split(','):
             other_bots_Synthax.append(i)
+
 
 # VOICEVOX音声再生（.bat）ファイルへのパス
 sh_json = "output_json_from_VOICEVOX.sh"   

@@ -213,7 +213,16 @@ class room_information():
         self.vlist_file = ini.get('Data Location', 'VoiceList')
         self.flist_file = ini.get('Data Location', 'FlagList')
         self.wlist_file = ini.get('Data Location', 'WordList')
-        self.style_setting_file = ini.get('Data Location', 'StyleSetting')
+        self.style_setting_file = ini.get('Data Location', 'StyleSetting')    
+        
+        self.use_voicevox = os.getenv("USE_VOICEVOX",self.use_voicevox)
+        self.use_coeiroink = os.getenv("USE_COEIROINK",self.use_coeiroink)
+        self.use_lmroid = os.getenv("USE_LMROID",self.use_lmroid)
+        self.use_sharevox = os.getenv("USE_SHAREVOX",self.use_sharevox)
+        self.style_setting_file = os.getenv("STYLE_SETTING_PATH",self.style_setting_file)
+        self.vlist_file = os.getenv("STYLE_SETTING_PATH",self.vlist_file)
+        self.flist_file = os.getenv("VOICE_LIST_PATH",self.flist_file)
+        self.wlist_file = os.getenv("WORD_LIST_PATH",self.wlist_file)
 
         # ソフトウェア情報の読み込み
         self.generators = {}
