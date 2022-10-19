@@ -9,8 +9,7 @@ voibox_version = 'v20220628-Docker'
 with open(TOKEN_file,'r', encoding='utf-8') as f:
       TOKEN = f.read()
       f.close()
-if not(os.environ["TOKEN"] == None):
-      TOKEN = os.environ["TOKEN"]
+TOKEN = os.getenv('TOKEN',TOKEN)
 
 
 # Synthax情報を読み込む
@@ -26,13 +25,11 @@ with open(Synthax_file, 'r', encoding='utf-8') as f:
                   comment_Synthax = row[1]
             elif row[0] == 'other_bots_Synthax':
                   other_bots_Synthax.append(row[1])
-if not(os.environ["COMMAND_SYNTHAX"] == None):
-      command_Synthax = os.environ["COMMAND_SYNTHAX"]
-if not(os.environ["COMMENT_SYNTHAX"] == None):
-      comment_Synthax = os.environ["COMMENT_SYNTHAX"]
-if not(os.environ["OTHER_BOTS_SYNTHAX"] == None):
+command_Synthax = os.getenv('COMMAND_SYNTHAX',command_Synthax)
+comment_Synthax = os.getenv('COMMENT_SYNTHAX',comment_Synthax)
+if not(os.getenv('OTHER_BOTS_SYNTHAX') == None):
       other_bots_Synthax = []
-      for i in os.environ["OTHER_BOTS_SYNTHAX"].split(','):
+      for i in os.getenv('OTHER_BOTS_SYNTHAX').split(','):
             other_bots_Synthax.append(i)
 
 # VOICEVOX音声再生（.bat）ファイルへのパス
@@ -42,9 +39,12 @@ sh_voice = "output_voice_from_VOICEVOX.sh"
 #各種ファイルへのパス(discordbot.pyからみた相対パス)
 voice_file = "tmp/tmp_voice.wav"      # VOICEVOX音声の保存先
 json_file = 'tmp/query.json'          # jsonファイルへのパス
-vlist_file = "data/voice_list.csv"    # ユーザー毎のボイスリスト 
+vlist_file = "data/voice_list.csv"    # ユーザー毎のボイスリスト
 flist_file = "data/flag_list.csv"
 wlist_file = "data/word_list.csv"     # 単語帳
+vlist_file = os.getenv('VOICE_LIST_PATH',vlist_file)
+flist_file = os.getenv('FLAG_LIST_PATH',flist_file)
+wlist_file = os.getenv('WORD_LIST_PATH',wlist_file)
 clist_file = "data/command_list.txt"  # コマンドリスト
 SE_file = "SE_list.csv"               # SEリスト
 image_file = "image_list.csv"         # 画像リスト
