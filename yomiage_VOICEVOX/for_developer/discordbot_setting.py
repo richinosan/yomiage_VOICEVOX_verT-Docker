@@ -30,6 +30,7 @@ if not(os.environ["COMMAND_SYNTHAX"] == None):
 if not(os.environ["COMMENT_SYNTHAX"] == None):
       comment_Synthax = os.environ["COMMENT_SYNTHAX"]
 if not(os.environ["OTHER_BOTS_SYNTHAX"] == None):
+      other_bots_Synthax = []
       for i in os.environ["OTHER_BOTS_SYNTHAX"].split(','):
             other_bots_Synthax.append(i)
 
