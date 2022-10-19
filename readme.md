@@ -74,7 +74,7 @@ python読める＆docker実行できる人向けです。
    - 他のbotの接頭辞です。コンマ区切りで複数設定できます。ここで指定された接頭辞がつくコマンドに対して読み上げを行いません。環境変数を設定しない場合、Synthax_setting.csvを参照します。
 
 6. **USE_VOICEVOX**
-   - VOICEVOCXのboolです。使用する場合はTrueに設定します。環境変数を設定しない場合、setting.iniを参照します。
+   - VOICEVOXのboolです。使用する場合はTrueに設定します。環境変数を設定しない場合、setting.iniを参照します。
 
 7. **USE_COEIROINK**
    - COEIROINKのboolです。使用する場合はTrueに設定します。環境変数を設定しない場合、setting.iniを参照します。
