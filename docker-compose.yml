@@ -9,8 +9,8 @@ services:
     volumes:
       - ./yomiage_VOICEVOX:/yomiage_VOICEVOX
     environment:
-      TOKEN: "TOKEN"
       TZ: "Asia/Tokyo"
+      TOKEN: "TOKEN"
       COMMAND_SYNTHAX : "!"
       COMMENT_SYNTHAX : ">"
       OTHER_BOTS_SYNTHAX : "$$,%,*"

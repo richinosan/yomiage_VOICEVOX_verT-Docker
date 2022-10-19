@@ -58,11 +58,11 @@ python読める＆docker実行できる人向けです。
 
 ## docker-compose.ymlのEnvironment
 
-1. **TOKEN**
-   - botで使用するトークンです。
+1. **TZ**
+   - タイムゾーンです。デフォルトではAsia/Tokyoにセットされています。
 
-2. **TZ**
-   - タイムゾーンです。デフォルトではアジアにセットされています。
+2. **TOKEN**
+   - botで使用するトークンです。
 
 3. **COMMAND_SYNTHAX**
    - ここを変更するとコマンドの接頭辞が変わります

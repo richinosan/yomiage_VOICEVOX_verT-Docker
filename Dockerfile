@@ -7,6 +7,7 @@ linux-headers \
 build-base \
 libffi-dev \
 gcc \
+tzdata \
 ffmpeg
 
 RUN pip install --upgrade pip
