@@ -1,14 +1,12 @@
-# yomiage_VOICEVOX(verT-20220924)-Docker
+# yomiage_VOICEVOX(v20220628)
 
 by かみみや
-
-forked by タクト
 
 Docker Image forked by Richinosan
 
 ## 概要
 
-DiscordのチャットをVOICEVOX・COEIROINK・LMROID・SHAREVOXで読み上げるソフトです。
+DiscordのチャットをVOICEVOXで読み上げるソフトです。
 
 python読める＆docker実行できる人向けです。
 
@@ -25,44 +23,37 @@ python読める＆docker実行できる人向けです。
 
 ## ファイル構造(重要度順)
 
-1. **readme.md**
+1. **readme_for_python.md**
    - これです。使い方などかいているのでお読みください。
-2. **readme.html**
+2. **readme_for_exe.html**
    - exe版を利用する場合はこちらをお読みください
-3. **前バージョンからの移行方法.txt**
+2. **前バージョンからの移行方法.txt**
    - 以前のバージョンを使っていた場合はこれを参考にしてデータ（単語帳など）を引き継いでください
-4. **discordbot.exe**
+2. **discordbot.exe**
    - 実行ファイル
-5. **discordbot.py**
-   - コマンドプロンプトから実行する場合はこちらを使ってください
-6. **setting.ini**
-   - 各種設定ファイルです。今のところ「ソフトウェア別に使用するかどうか」「デフォルト話者とスタイルの設定」「データファイルの場所」を設定できます。
-7. **TOKEN.txt**
+3. **TOKEN.txt**
    - BOTのアクセストークンを保存するファイル
-8. **command_list.html**
+4. **command_list.html**
    - 実装されているコマンドの確認
-9. **Synthax_setting.csv**
+5. **Synthax_setting.csv**
    - コマンドおよびコメントの先頭の文字を設定するファイル
-10. **for_developer**
+7. **python_code**
    - ソースファイル
-11. **data**
+6. **data**
    - 単語帳などが保存されるファイル。開く必要はあまりないです。
-12. **get_speakers_from_VOICEVOX.sh**
-   - VOICEVOXから話者の情報を取得するshファイル。通常は編集する必要はありません。
-13. **output_json_from_VOICEVOX.sh**
-   - VOICEVOXでjsonファイルを作成するshファイル。通常は編集する必要はありません。
-14. **output_voice_from_VOICEVOX.sh**
-   - VOICEVOXで音声を作成するshファイル。通常は編集する必要はありません。
-15. **tmp**
+7. **output_json_from_VOICEVOX.bat**
+   - VOICEVOXでjsonファイルを作成するbatファイル。
+8. **output_voice_from_VOICEVOX.bat**
+   - VOICEVOXで音声を作成するbatファイル。
+11. **tmp**
     - 一時的に出力されるファイル（VOICEVOXで出力した音声ファイル等）が保存されます。開く必要は全くないです。
-
 ## docker-compose.ymlのEnvironment
 
-1. **TOKEN**
-   - botで使用するトークンです。
+1. **TZ**
+   - タイムゾーンです。デフォルトではAsia/Tokyoにセットされています。
 
-2. **TZ**
-   - タイムゾーンです。デフォルトではアジアにセットされています。
+2. **TOKEN**
+   - botで使用するトークンです。
 
 3. **COMMAND_SYNTHAX**
    - ここを変更するとコマンドの接頭辞が変わります
@@ -75,7 +66,7 @@ python読める＆docker実行できる人向けです。
 
 ## 注意
 
-1. このソフトはWindows10・11上で使われることを想定しています。LinuxやMacで使う場合はshファイルまわりと音声のopus変換まわりをいじれば多分なんとかなります。
+1. このソフトはWindows10上で使われることを想定しています。LinuxやMacで使う場合はbatファイルまわりと音声のopus変換まわりをいじれば多分なんとかなります。
 2. Pythonほぼ触ったことない + Discord bot作るの初めてで不慣れなところがあり一部コードが汚いかもしれないです。ごめんなさい。
 3. 以前のバージョンのデータを引き継ぎたい場合は**データの引き継ぎ方.txt**をご覧ください
 4. 同一ネットワーク内の他コンテナでportsをせずにVOICEVOXを起動する場合はshファイルのhost.docker.internalをサービス名に変更してください。
@@ -90,13 +81,12 @@ python読める＆docker実行できる人向けです。
 2. VOICEVOXのインストール
    [このサイト](https://voicevox.hiroshiba.jp/)から最新版をダウンロードしてください。
 
-
 ## 起動方法
 
 
 1. 上の導入が必要なソフトをすべてインストールします。
 
-2. このフォルダ(yomiage_VOICEVOX_verT-Docker)をわかりやすい場所に置きます。
+2. このフォルダ(yomiage_VOICEVOX)をわかりやすい場所に置きます。
 
 3. DiscordのBotを作成し、招待します。（すでにチャットルームにBotを招待している場合は省略）[このサイト](https://note.com/exteoi/n/nf1c37cb26c41)の**1. Discord上のBotの作成**にある記述を参考にしてください。
 
@@ -115,22 +105,22 @@ python読める＆docker実行できる人向けです。
 
 4. VOICEVOXを起動します。
 
-5. コマンドプロンプトを起動します。 (Win+Rで"ファイル名を指定して実行"を開いて"cmd"を打ち込んだら出てくると思います）
+4. コマンドプロンプトを起動します。 (Win+Rで"ファイル名を指定して実行"をひらいて"cmd"を打ち込んだら出てくると思います）
 
-6. チェンジディレクトリでこのフォルダの中身まで移動します。
+7. チェンジディレクトリでこのフォルダの中身まで移動します。
    cd ディレクトリ名で移動できます。（https://eng-entrance.com/windows-command-cd を参照）例えば以下のようにする。
 
    ```bash
-   $ cd C:\discord_bot\yomiage_VOICEVOX_verT-Docker
+   $ cd C:\discord_bot\yomiage_VOICEVOX-Docker
    ```
 
-7. コマンドプロンプトに以下を打ち込み、実行します。
+8. コマンドプロンプトに以下を打ち込み、実行します。
 
    ```bash
    $ docker-compose up --build
    ```
 
-8. おつかれさまでした。
+9. おつかれさまでした。
 
 ## 使用方法
 
@@ -141,6 +131,12 @@ python読める＆docker実行できる人向けです。
 
 1. "!leave"でボイスチャンネルからBOTを退場させておきます
 2. コマンドプロンプト上で"ctrl + C"をおこなって終了させます
+
+### **注意**
+
+追加機能を付けるなどで外部ライブラリを使うorPython以外でコーディングしたプログラムを用いる必要がある場合はspecファイルの書き換えを行う必要がでてくる可能性がある
+
+[参考資料](https://qiita.com/takanorimutoh/items/53bf44d6d5b37190e7d1) 
 
 ## エラーが出た時
 
@@ -191,9 +187,6 @@ python読める＆docker実行できる人向けです。
 
 3. VOICEVOX及び各キャラの利用規約をよく読んでから使用してください。<br>
    [VOICEVOX HP](https://voicevox.hiroshiba.jp/) <br>
-   [COEIROINK HP](https://coeiroink.com/) <br>
-   [LMROID HP](https://lmroidsoftware.wixsite.com/nhoshio) <br>
-   [SHAREVOX HP](https://www.sharevox.app/) <br>
    [東北ずん子利用の手引き](https://zunko.jp/guideline.html)<br>
    
 4. 本ソフトウェアにより生じた損害・不利益について、製作者は一切の責任を負いません。
@@ -337,32 +330,12 @@ python読める＆docker実行できる人向けです。
 
   botが入室しているボイスチャンネル名の表示のオンオフを切り替えられるようにした
 
-- 20220902(かみみや)
+- 20220902(かみみや
 
   単語数制限が反映されない問題を解決
   
   ボイス（剣崎）を使用可にした
   
-- 20220923(タクト)
-
-  話者を動的に取得するようにした
-
-  voice_list.csvの様式が変更になった(前バージョンのものは初回起動時に現在の様式に更新されます)
-
-  COEIROINK、LMROID、SHAREVOXに対応した
-
-- 20220924(タクト)
-
-  スタイル毎に話速・音高・抑揚・音量を持てるようにした
-
-- 20221002(タクト)
-
-  設定ファイルの名称変更
-
-  各種リストのロケーションを設定ファイル側で持つようにした（同一サーバーで複数のbotを運営する用）
-
-  word_list.csvの更新時に余計な空行が発生しないようにした
-
 - 20221019(Richinosan)
 
-   docker-composeに対応
+   docker-composeに対応 

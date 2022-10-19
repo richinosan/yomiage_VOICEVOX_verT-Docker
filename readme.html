@@ -4,7 +4,7 @@
       <meta charset="UTF-8">
       <meta http-eqliv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="yomiage_VOICEVOX/tmp/css/style.css">
+      <link rel="stylesheet" href="tmp/css/style.css">
       <style>
             .overflow-wrap-break-word {
             overflow-wrap: break-word;
@@ -14,7 +14,7 @@
 </head>
 <body>
       <div class="title">
-            <h1>yomiage_VOICEVOX_verT(20220924版)__Readme</h1>
+            <h1>yomiage_VOICEVOX(20220611版)__Readme</h1>
       </div>
       <h2>概要</h2>
       <p>DiscordのチャットをVOICEVOXで読み上げるソフトです。<br>コマンド一覧は<a href="command_list.html">command_list.html</a>を参照してください。</p>
@@ -30,34 +30,28 @@
 
       <h2>ファイル構造</h2>
       <dl>
-            <dt>readme.html</dt>
+            <dt>readme_for_exe.html</dt>
             <dd>これです。使い方などをかいているのでお読みください。</dd>
-            <dt>readme.md</dt>
+            <dt>readme_for_python.md</dt>
             <dd>pythonのソースコードから起動したい場合はこちらをお読みください。</dd>
             <dt>前バージョンからの移行方法.txt</dt>
             <dd>以前のバージョンを使っていた場合はこれを参考にしてデータ（単語帳など）を引き継いでください</dd>
             <dt>discordbot.exe</dt>
             <dd>実行ファイル</dd>
-            <dt>discordbot.py</dt>
-            <dd>コマンドプロンプトから実行する場合はこちらを使ってください</dd>
-            <dt>generator_setting.ini</dt>
-            <dd>ソフトウェア別に使用するかどうか、デフォルト話者とスタイルの設定ファイルです</dd>
             <dt>TOKEN.txt</dt>
             <dd>BOTのアクセストークンを保存するファイル</dd>
             <dt>command_list.html</dt>
             <dd>実装されているコマンドリスト</dd>
             <dt>Synthax_setting.csv</dt>
             <dd>コマンドおよびコメントの先頭の文字を設定するファイル</dd>
-            <dt>for_developer</dt>
+            <dt>python_code</dt>
             <dd>ソースファイル</dd>
             <dt>data</dt>
             <dd>単語帳などが保存されるファイル。開く必要はあまりないです。</dd>
-            <dt>get_speakers_from_VOICEVOX.bat</dt>
-            <dd>VOICEVOXから話者の情報を取得するbatファイル。通常は編集する必要はありません。</dd>
             <dt>output_json_from_VOICEVOX.bat</dt>
-            <dd>VOICEVOXでjsonファイルを作成するbatファイル。通常は編集する必要はありません。</dd>
+            <dd>VOICEVOXでjsonファイルを作成するbatファイル。</dd>
             <dt>output_voice_from_VOICEVOX.bat</dt>
-            <dd>VOICEVOXで音声を作成するbatファイル。通常は編集する必要はありません。</dd>
+            <dd>VOICEVOXで音声を作成するbatファイル。</dd>
             <dt>tmp</dt>
             <dd>一時的に出力されるファイル（VOICEVOXで出力した音声ファイル等）が保存されます。開く必要は全くないです。</dd>
       </dl>
@@ -127,7 +121,7 @@
       <ul>
             <li>ほかのBOTとコマンドが被ってしまっている場合は<b>Synthax_setting.csv</b>の<b>!</b>, <b>></b>を適当に変更してください。</li>
             <li>また、<b>Synthax_setting.csv</b>にother_bots_Synthax,$などと追記することで、他のBOTのコマンドを読み飛ばすように設定できます。</li>
-            <li>このバージョンは改変版です。本家の修正等にはできる限り追従しますが、完全でないことをご了承ください。</li>
+            <li>機能の追加、バグの修正などしていくつもりなのでよろしくお願いします。更新したら<a href="https://discord.gg/CMrDukD8DZ">discord</a>で報告します。</li>
             <li>GPUを積んでいる場合はVOICEVOXをGPUモードで起動することをおすすめします。</li>
       </ul>
 
@@ -135,7 +129,7 @@
       <ol>
             <li>本ソフトはオープンソースです。お金を払いたい場合は<a href="https://hiho.fanbox.cc/">VOICEVOX様</a>にどうぞ</li>
             <li>ソースコードの改変はご自由にどうぞ。ただし、改変したものを配布する場合は改変したことが分かるようにファイル名を変更して、更新履歴に変更点を追記してください。</li>
-            <li>各ソフトウェア及び各キャラの利用規約をよく読んでから使用してください。</li>
+            <li>VOICEVOX及び各キャラの利用規約をよく読んでから使用してください。</li>
             <ol>
                   <li><a href="https://voicevox.hiroshiba.jp/">VOICEVOX HP</a></li>
                   <li><a href="https://virvoxproject.wixsite.com/official/voicevox%E3%81%AE%E5%88%A9%E7%94%A8%E8%A6%8F%E7%B4%84">VOICEVOX利用規約</a></li>
@@ -145,23 +139,8 @@
                   <li><a href="https://amehau.com/?page_id=225">雨晴はう利用規約</a></li>
                   <li><a href="https://kotoran8zunzun.wixsite.com/my-site/%E5%88%A9%E7%94%A8%E8%A6%8F%E7%B4%84">冥鳴ひまり利用規約</a></li>
                   <li><a href="https://vtubermochio.wixsite.com/mochizora/%E5%88%A9%E7%94%A8%E8%A6%8F%E7%B4%84">もちぞら模型店（もち子・あん子）二次創作について</a></li>
-                  <li><a href="https://frontier.creatia.cc/fanclubs/413/posts/4507">剣崎雌雄利用規約</a></li>
-                  <li><a href="https://coeiroink.com/">COEIROINK HP</a></li>
-                  <li><a href="https://coeiroink.com/terms">COEIROINK利用規約</a></li>
-                  <li><a href="https://tyc.rei-yumesaki.net/about/terms/">つくよみちゃん利用規約</a></li>
-                  <li><a href="https://cf-mk.jimdofree.com/%E5%88%A9%E7%94%A8%E8%A6%8F%E7%B4%84/">MANA・KANA利用規約</a></li>
-                  <li><a href="https://coeiroink.com/character/audio-character/ofutonp">おふとんP音声ページ</a></li>
-                  <li><a href="https://production.lusty-kiss.com/tos">ディアちゃん・アルマちゃん利用規約</a></li>
-                  <li>BOT利用者がMYCOEIROINKを利用する場合、その利用規約に従うこと</li>
-                  <li><a href="https://lmroidsoftware.wixsite.com/nhoshio">LMROID HP</a></li>
-                  <li><a href="https://lmroidsoftware.wixsite.com/nhoshio/terms">LMROID利用規約</a></li>
-                  <li><a href="https://lmroidsoftware.wixsite.com/nhoshio/character">LMROID キャラクターページ</a></li>
-                  <li><a href="https://www.sharevox.app/">SHAREVOX HP</a></li>
-                  <li><a href="https://www.sharevox.app/terms">SHAREVOX利用規約</a></li>
-                  <li><a href="https://www.sharevox.app/characters">SHAREVOX キャラクターページ</a></li>
-            </ol>
             <li>本ソフトウェアにより生じた損害・不利益について、製作者は一切の責任を負いません。</li>
-            <li>このバージョンは改変版です。改善して欲しい点などあれば<a href="https://twitter.com/Taktstock_mov">改変者のTwitter</a>で言ってください。</li>
+            <li>改善して欲しい点などあれば<a href="https://discord.gg/CMrDukD8DZ">discord</a>で言ってください。</li>
       </ol>
 
       <h2>更新履歴</h2>
@@ -267,22 +246,6 @@
             <dd>
                   単語数制限が反映されない問題を解決<br>
                   ボイス（剣崎）を使用可にした<br>
-            </dd>
-            <dt>verT-20220923</dt>
-            <dd>
-                  話者を動的に取得するようにした<br>
-                  voice_list.csvの様式が変更になった(前バージョンのものは初回起動時に現在の様式に更新されます)<br>
-                  COEIROINK、LMROID、SHAREVOXに対応した<br>
-            </dd>
-            <dt>verT-20220924</dt>
-            <dd>
-                  スタイル毎に話速・音高・抑揚・音量を持てるようにした（暫定対応）
-            </dd>
-            <dt>verT-20221002</dt>
-            <dd>
-                  設定ファイルの名称変更<br>
-                  各種リストのロケーションを設定ファイル側で持つようにした（同一サーバーで複数のbotを運営する用）<br>
-                  word_list.csvの更新時に余計な空行が発生しないようにした<br>
             </dd>
       </dl>
 
