@@ -96,6 +96,12 @@ python読める＆docker実行できる人向けです。
 
 13. **STYLE_SETTING_PATH**
    - style_settingのパスです。botにより異なるリストを設定するときに使用します。環境変数を設定しない場合、setting.iniを参照します。
+   
+14. **OTHER_VOICEVOX_APP**
+   - その他VOICEVOX派生クライアントを使いたいときに入力します。カンマ区切りで複数クライアントを認識します。対応するOTHER_VOICEVOX_PORTを指定することが必須です。※利用先の利用規約を確認すること
+   
+15. **OTHER_VOICEVOX_PORT**
+   - その他VOICEVOX派生クライアントを使いたいときに入力します。カンマ区切りで複数クライアントを認識します。対応するOTHER_VOICEVOX_APPを入力することが必須です。※利用先の利用規約を確認すること
 
 ## 注意
 

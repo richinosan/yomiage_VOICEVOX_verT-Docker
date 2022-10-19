@@ -226,6 +226,10 @@ class room_information():
             self.createVoiceVoxGenerator('LMROID', '50073')
         if self.use_sharevox:
             self.createVoiceVoxGenerator('SHAREVOX', '50025')
+        other_voicevox_app = os.getenv("OTHER_VOICEVOX_APP",None)
+        if not(other_voicevox_app == None):
+            for i,x in enumerate(other_voicevox_app.split(',')):
+                self.createVoiceVoxGenerator(x, os.getenv("OTHER_VOICEVOX_PORT").split(',')[i])
         
         if not any(self.generators):
             print("音声合成ソフトウェアの初期化に失敗しました。プログラムを終了します。")
