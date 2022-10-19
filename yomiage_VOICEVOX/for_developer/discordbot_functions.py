@@ -215,10 +215,10 @@ class room_information():
         self.wlist_file = ini.get('Data Location', 'WordList')
         self.style_setting_file = ini.get('Data Location', 'StyleSetting')    
         
-        self.use_voicevox = True if os.getenv("USE_VOICEVOX",self.use_voicevox) == 'True' or True else False
-        self.use_coeiroink = True if os.getenv("USE_COEIROINK",self.use_coeiroink) == 'True' or True else False
-        self.use_lmroid = True if os.getenv("USE_LMROID",self.use_lmroid) == 'True' or True else False
-        self.use_sharevox = True if os.getenv("USE_SHAREVOX",self.use_sharevox) == 'True' or True else False
+        self.use_voicevox = True if os.getenv("USE_VOICEVOX",self.use_voicevox) == ('True' or True) else False
+        self.use_coeiroink = True if os.getenv("USE_COEIROINK",self.use_coeiroink) == ('True' or True) else False
+        self.use_lmroid = True if os.getenv("USE_LMROID",self.use_lmroid) == ('True' or True) else False
+        self.use_sharevox = True if os.getenv("USE_SHAREVOX",self.use_sharevox) == ('True' or True) else False
         self.style_setting_file = os.getenv("STYLE_SETTING_PATH",self.style_setting_file)
         self.vlist_file = os.getenv("VOICE_LIST_PATH",self.vlist_file)
         self.flist_file = os.getenv("FLAG_LIST_PATH",self.flist_file)
