@@ -1,14 +1,16 @@
-# yomiage_VOICEVOX(verT-20220924)
+# yomiage_VOICEVOX(verT-20220924)-Docker
 
 by かみみや
 
 forked by タクト
 
+Docker Image forked by Richinosan
+
 ## 概要
 
 DiscordのチャットをVOICEVOX・COEIROINK・LMROID・SHAREVOXで読み上げるソフトです。
 
-python読める＆python実行できる人向けです。
+python読める＆docker実行できる人向けです。
 
 コマンド一覧は[command_list.html](command_list.html)を参照してください。
 
@@ -45,42 +47,47 @@ python読める＆python実行できる人向けです。
    - ソースファイル
 11. **data**
    - 単語帳などが保存されるファイル。開く必要はあまりないです。
-12. **get_speakers_from_VOICEVOX.bat**
-   - VOICEVOXから話者の情報を取得するbatファイル。通常は編集する必要はありません。
-13. **output_json_from_VOICEVOX.bat**
-   - VOICEVOXでjsonファイルを作成するbatファイル。通常は編集する必要はありません。
-14. **output_voice_from_VOICEVOX.bat**
-   - VOICEVOXで音声を作成するbatファイル。通常は編集する必要はありません。
+12. **get_speakers_from_VOICEVOX.sh**
+   - VOICEVOXから話者の情報を取得するshファイル。通常は編集する必要はありません。
+13. **output_json_from_VOICEVOX.sh**
+   - VOICEVOXでjsonファイルを作成するshファイル。通常は編集する必要はありません。
+14. **output_voice_from_VOICEVOX.sh**
+   - VOICEVOXで音声を作成するshファイル。通常は編集する必要はありません。
 15. **tmp**
     - 一時的に出力されるファイル（VOICEVOXで出力した音声ファイル等）が保存されます。開く必要は全くないです。
 
+## docker-compose.ymlのEnvironment
+
+1. **TOKEN**
+   - botで使用するトークンです。
+
+2. **TZ**
+   - タイムゾーンです。デフォルトではアジアにセットされています。
+
+3. **COMMAND_SYNTHAX**
+   - ここを変更するとコマンドの接頭辞が変わります
+
+4. **COMMENT_SYNTHAX**
+   - コメント文を表すシンタックスです。
+
+5. **OTHER_BOTS_SYNTHAX**
+   - 他のbotの接頭辞です。コンマ区切りで複数設定できます。ここで指定された接頭辞がつくコマンドに対して読み上げを行いません。
+
 ## 注意
 
-1. このソフトはWindows10・11上で使われることを想定しています。LinuxやMacで使う場合はbatファイルまわりと音声のopus変換まわりをいじれば多分なんとかなります。
+1. このソフトはWindows10・11上で使われることを想定しています。LinuxやMacで使う場合はshファイルまわりと音声のopus変換まわりをいじれば多分なんとかなります。
 2. Pythonほぼ触ったことない + Discord bot作るの初めてで不慣れなところがあり一部コードが汚いかもしれないです。ごめんなさい。
 3. 以前のバージョンのデータを引き継ぎたい場合は**データの引き継ぎ方.txt**をご覧ください
+4. 同一ネットワーク内の他コンテナでportsをせずにVOICEVOXを起動する場合はshファイルのhost.docker.internalをサービス名に変更してください。
 
 ## 導入が必要なソフト
 
 このソフトを利用するために以下のソフト類のインストールが必要です。
 
-1. python3のインストール
-   [このサイト](https://www.python.jp/install/windows/install.html)を参考にしてください。
+1. Docker Engineのインストール
+   [このサイト](https://docs.docker.com/engine/install/)を参考にしてください。
    
-   **python3.8以上をおすすめします。**（3.7より古いものはライブラリがサポートしていない）
-   
-2. ffmpegのインストール
-   [このサイト](https://jp.videoproc.com/edit-convert/how-to-download-and-install-ffmpeg.htm)の"**1. WindowsでFFmpegをダウンロード＆インストールする方法（Windows10対応）**"を参考にしてください。
-
-3. pycord.py, PyNaClのインストール
-   コマンドプロンプト(Win+Rで"ファイル名を指定して実行"をひらいて"cmd"を打ち込んだら出てくると思います）上で以下のコマンドを打ち込んで実行してください。
-
-   ```bash
-   $ pip install git+https://github.com/Rapptz/discord.py
-   $ pip install PyNaCl
-   ```
-   
-4. VOICEVOXのインストール
+2. VOICEVOXのインストール
    [このサイト](https://voicevox.hiroshiba.jp/)から最新版をダウンロードしてください。
 
 
@@ -89,7 +96,7 @@ python読める＆python実行できる人向けです。
 
 1. 上の導入が必要なソフトをすべてインストールします。
 
-2. このフォルダ(yomiage_VOICEVOX)をわかりやすい場所に置きます。
+2. このフォルダ(yomiage_VOICEVOX_verT-Docker)をわかりやすい場所に置きます。
 
 3. DiscordのBotを作成し、招待します。（すでにチャットルームにBotを招待している場合は省略）[このサイト](https://note.com/exteoi/n/nf1c37cb26c41)の**1. Discord上のBotの作成**にある記述を参考にしてください。
 
@@ -104,26 +111,26 @@ python読める＆python実行できる人向けです。
 
 3. アクセストークンを設定する（すでに設定していたら省略）
 
-   TOKEN.txtをテキストエディタで開いて、2-4)でコピーしていたTOKENを保存してください。
+   docker-compose.ymlをテキストエディタで開いて、3-4)でenvironment:TOKEN:にコピーしていたTOKENを保存してください。
 
 4. VOICEVOXを起動します。
 
-4. コマンドプロンプトを起動します。 (Win+Rで"ファイル名を指定して実行"をひらいて"cmd"を打ち込んだら出てくると思います）
+5. コマンドプロンプトを起動します。 (Win+Rで"ファイル名を指定して実行"を開いて"cmd"を打ち込んだら出てくると思います）
 
-7. チェンジディレクトリでこのフォルダの中身まで移動します。
+6. チェンジディレクトリでこのフォルダの中身まで移動します。
    cd ディレクトリ名で移動できます。（https://eng-entrance.com/windows-command-cd を参照）例えば以下のようにする。
 
    ```bash
-   $ cd C:\discord_bot\yomiage_VOICEVOX
+   $ cd C:\discord_bot\yomiage_VOICEVOX_verT-Docker
    ```
 
-8. コマンドプロンプトに以下を打ち込み、実行します。
+7. コマンドプロンプトに以下を打ち込み、実行します。
 
    ```bash
-   $ py discordbot.py
+   $ docker-compose up --build
    ```
 
-9. おつかれさまでした。
+8. おつかれさまでした。
 
 ## 使用方法
 
@@ -134,28 +141,6 @@ python読める＆python実行できる人向けです。
 
 1. "!leave"でボイスチャンネルからBOTを退場させておきます
 2. コマンドプロンプト上で"ctrl + C"をおこなって終了させます
-
-## exeファイル化の方法
-
-pyinstallerを使うので入ってない場合はインストールする。
-
-```bash
-$ pip install pyinstaller
-```
-
-以下のコマンドを打ち込んでexe化する(pyinstallerが使えない場合は環境変数の編集からPath[例）C:\Users\xxx\AppData\Roaming\Python\Python38\Scripts]を追加する）
-
-```bash
-$ pyinstaller for_developer/discordbot.spec --onefile
-```
-
-成功したら**dist**というファイルが生成され、そのなかにdiscordbot.exeがある。
-
-### **注意**
-
-追加機能を付けるなどで外部ライブラリを使うorPython以外でコーディングしたプログラムを用いる必要がある場合はspecファイルの書き換えを行う必要がでてくる可能性がある
-
-[参考資料](https://qiita.com/takanorimutoh/items/53bf44d6d5b37190e7d1) 
 
 ## エラーが出た時
 
@@ -170,10 +155,6 @@ $ pyinstaller for_developer/discordbot.spec --onefile
 - Discord BotのPrivileged Intents が有効になっていません云々のメッセージ
 
   BOTの設定に問題があるので確認する [**起動方法2-5)**を参照]
-
-- ffmpegがインストールされていない云々のメッセージ
-
-  ffmpegをインストールする [**導入が必要なソフト1)**を参照]
 
 ## 前バージョンからの引き継ぎ方法
 
@@ -195,8 +176,8 @@ $ pyinstaller for_developer/discordbot.spec --onefile
 
 ## その他
 
-1. ほかのBOTとコマンドが被ってしまっている場合はSynthax_setting.csvの"!", ">"を適当に変更してください。
-2. このBOTは改変版です。バグ報告や機能要望等は[改変者のTwitter](https://twitter.com/Taktstock_mov)にお願いします。
+1. ほかのBOTとコマンドが被ってしまっている場合はdocker-compose.ymlのenvironment:からCOMMAND_SYNTHAX、OTHER_BOTS_SYNTHAXの中身を適当に変更してください。
+2. このBOTは改変版です。バグ報告や機能要望等は[改変者のTwitter](https://twitter.com/Richinosan)等にお願いします。
 
 
 ## 利用規約的なやつ
@@ -381,3 +362,7 @@ $ pyinstaller for_developer/discordbot.spec --onefile
   各種リストのロケーションを設定ファイル側で持つようにした（同一サーバーで複数のbotを運営する用）
 
   word_list.csvの更新時に余計な空行が発生しないようにした
+
+- 20221019(Richinosan)
+
+   docker-composeに対応
