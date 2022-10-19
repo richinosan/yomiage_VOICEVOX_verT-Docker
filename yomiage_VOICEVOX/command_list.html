@@ -38,16 +38,15 @@
       <h2>調声コマンド</h2>
       <dl>
             <dt>!chg_my_voice</dt>
-            <dd>ボイスを変えます。!chg_my_voice A B [C]で設定できます。<br>
-                  Aは話者名、Bはスタイル名です。使用できる話者とスタイルは!show_speakersコマンドで確認してください。<br>
-                  Cはソフトウェア名です。VOICEVOX、COEIROINK、LMROID、SHAREVOXから選んで入力してください。<br>
-                  Cはなくてもコマンドを受け付けます。将来的に、複数のソフトで同じ話者名とスタイル名の組み合わせが出た場合に向けての対応となります。</dd>
-            <dt>!chg_voice_setting</dt>
-            <dd>スタイル毎に話速・音高・抑揚・音量を変更します。!chg_voice_setting A B C D で設定できます。<br>
-                  Aは話者名、Bはスタイル名です。使用できる話者とスタイルは!show_speakersコマンドで確認してください。<br>
-                  Cは speed pitch intonation volume から選んで入力してください。それぞれ話速・音高・抑揚・音量に対応します。<br>
-                  Dは設定値です。speedは0.5～2.0、pitchは-0.15～0.15、intonationとvolumeは0～2.0の範囲で入力してください。
-            </dd>
+            <dd>ボイスを変えます。!chg_my_voice A Bで設定できます。A, Bは以下のように設定します。<br>
+            
+            A: zundamon, metan, tsumugi, ritsu, hau, takehiro, torataro, ryusei, himari, sora, mochiko<br>
+            B: normal, amaama, sexy, tsun, whisper <br>
+            例）!chg_my_voice metan normal<br>
+            注意: tsumugi, ritsu,hau, takehiro, torataro, ryusei, himari, mochikoはnormalしか実装されていない。<br>
+            <dt>!chg_speed</dt>
+            <dd>音声再生スピードを変えます。!chg_speed Aで設定できます。Aは0.5から2.0までの実数で指定してください。<br>
+                  チャンネル全体で変えます。また、Voibotを再起動すると設定がリセットされます。</dd>
       </dl>
       <h2>各種設定</h2>
       <dl>
@@ -67,8 +66,6 @@
             <dd>文字数制限の設定<br>例: 50文字に設定したい時）!word_count_limit 50 </dd>
             <dt>!show_setting</dt>
             <dd>現在の設定を確認する</dd>
-            <dt>!show_speakers</dt>
-            <dd>現在利用できるソフトウェア、話者、スタイルの一覧を表示する</dd>
       </dl>
 </body>
 </html>

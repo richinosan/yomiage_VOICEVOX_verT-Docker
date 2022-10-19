@@ -9,3 +9,6 @@ yomiage_VOICEVOX/tmp/speakers.json
 yomiage_VOICEVOX/tmp/query.json
 yomiage_VOICEVOX/tmp/tmp_voice.wav
 .gitignore
+verKamimiya/*
+verT-Docker/*
+yomiage_VOICEVOX/data/voice_list.csv
