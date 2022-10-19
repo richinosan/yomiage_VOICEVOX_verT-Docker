@@ -14,4 +14,4 @@ services:
       COMMAND_SYNTHAX : "!"
       COMMENT_SYNTHAX : ">"
       OTHER_BOTS_SYNTHAX : "$$,%,*"
-    entrypoint: "python3 /yomiage_VOICEVOX/discordbot.py"
+    entrypoint: "python3 /yomiage_VOICEVOX/python_code/discordbot.py"
