@@ -82,7 +82,7 @@ class VoiceVoxVoiceGenerator(AbstractVoiceGenerator):
             data_lines = data_lines.replace('"speedScale":1,'     , '"speedScale":'     +str(parameter["speed"])+",")
             data_lines = data_lines.replace('"pitchScale":0,'     , '"pitchScale":'     +str(parameter["pitch"])+",")
             data_lines = data_lines.replace('"intonationScale":1,', '"intonationScale":'+str(parameter["intonation"])+",")
-            data_lines = data_lines.replace('"volumeScale":1,'    , '"volumeScale":'    +str(parameter["volume"])+",")
+            data_lines = data_lines.replace('"volumeScale":1}'    , '"volumeScale":'    +str(parameter["volume"])+"}")
         # 同じファイル名で保存
         with open(json_file, mode="w", encoding="utf-8") as f:
             f.write(data_lines)
