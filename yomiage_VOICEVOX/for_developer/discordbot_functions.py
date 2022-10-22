@@ -330,21 +330,27 @@ class room_information():
     async def execute_commands(self, message_tmp):
         # ボイスチャンネルに接続
         if message_tmp.content == command_join:
-            # message_tmpの送信者がいるボイスチャンネルに接続
-            await message_tmp.author.voice.channel.connect()
-            # 接続先のチャンネル情報を記録
-            self.text_room_name = str(message_tmp.channel)
-            self.text_room_id = int(message_tmp.channel.id)
-            self.voice_room_name = str(message_tmp.author.voice.channel)
-            self.voice_room_id = int(message_tmp.author.voice.channel.id)
-            self.guild_id = message_tmp.guild.id
-            # statusの更新
-            self.game = discord.Game(self.voice_room_name)
-            if self.flag_valid_dict[command_inform_tmp_room]:
-                await self.bot.change_presence(status=None, activity=self.game)
-            # 接続に成功したことの報告
-            print(self.voice_room_name + "に接続しました")
-            await message_tmp.channel.send(comment_dict['message_join'])
+            
+            allow_guildid = [int(x.strip()) for x in os.getenv('ALLOW_GUILDID',str(message_tmp.guild.id)).split(',')]
+            if message_tmp.guild.id in allow_guildid:
+                # message_tmpの送信者がいるボイスチャンネルに接続
+                await message_tmp.author.voice.channel.connect()
+                # 接続先のチャンネル情報を記録
+                self.text_room_name = str(message_tmp.channel)
+                self.text_room_id = int(message_tmp.channel.id)
+                self.voice_room_name = str(message_tmp.author.voice.channel)
+                self.voice_room_id = int(message_tmp.author.voice.channel.id)
+                self.guild_id = message_tmp.guild.id
+                # statusの更新
+                self.game = discord.Game(self.voice_room_name)
+                if self.flag_valid_dict[command_inform_tmp_room]:
+                    await self.bot.change_presence(status=None, activity=self.game)
+                # 接続に成功したことの報告
+                print(self.voice_room_name + "に接続しました")
+                await message_tmp.channel.send(comment_dict['message_join'])
+            else:
+                print("無効なサーバーに接続を試みました サーバー名:%s GUILDID:%d " % (message_tmp.guild.name, message_tmp.guild.id))
+                await message_tmp.channel.send(comment_dict['message_err_guildid'])
 
         # ボイスチャンネルから切断
         elif message_tmp.content == command_leave:

@@ -87,7 +87,8 @@ comment_dict = {'message_reload': comment_Synthax + '更新完了',
                 'message_not_actualized': comment_Synthax + "話者が存在しない、または話者に対応するスタイルが存在しません",
                 'message_not_actualized_in_software': comment_Synthax + "そのソフトウェアには入力された話者が存在しない、または話者に対応するスタイルが存在しません",
                 'message_invalid_software': comment_Synthax + "指定されたソフトウェアが存在しません",
-                'message_prompt_command': comment_Synthax + command_Synthax + "show_speakersコマンドを入力して、使用できるソフトウェア、話者、スタイルをご確認ください",}
+                'message_prompt_command': comment_Synthax + command_Synthax + "show_speakersコマンドを入力して、使用できるソフトウェア、話者、スタイルをご確認ください",
+                'message_err_guildid': "このボイスチャンネルへの入室は許可されていないのだ。",}
 
 # 拡張子リスト
 extension_dict = {".jpg": "画像ファイル", ".jpng": "画像ファイル", ".jpe": "画像ファイル", ".ico": "画像ファイル",
@@ -169,4 +170,3 @@ flag_name_dict = {command_inform_someone_come: "入退出の通知", command_inf
                   command_number_of_people: "在室人数チェック", command_auto_leave: "自動退出", 
                   command_word_count_limit: "文字数制限"}  # フラグの名前
 bool_name_dict = {True: "オン", False: "オフ"}  # フラグオンオフ通知用
-
